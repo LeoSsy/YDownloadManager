@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zbB-za-2s7">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="cGj-Fd-pMS">
+            <objects>
+                <tableViewController id="kRR-Jx-9Xs" customClass="ViewController" customModule="YDownloadManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kdp-47-FwE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="download" rowHeight="90" id="IlY-tT-IhZ" customClass="DownloadCell" customModule="YDownloadManager" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IlY-tT-IhZ" id="AOS-iB-gWQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQj-Zw-N3Z">
+                                            <rect key="frame" x="315" y="24" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="0xX-5A-xba"/>
+                                                <constraint firstAttribute="width" constant="40" id="4ZI-ZR-gwW"/>
+                                            </constraints>
+                                            <state key="normal" image="download"/>
+                                            <connections>
+                                                <action selector="downloadBtnClick:" destination="IlY-tT-IhZ" eventType="touchUpInside" id="bq4-Ct-MOc"/>
+                                            </connections>
+                                        </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RN2-p3-k3D" customClass="YProgressView" customModule="YDownloadManager" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="4"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="4" id="ggK-BN-Fb7"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RN2-p3-k3D" firstAttribute="leading" secondItem="AOS-iB-gWQ" secondAttribute="leading" id="HPo-D5-RNN"/>
+                                        <constraint firstItem="RN2-p3-k3D" firstAttribute="top" secondItem="AOS-iB-gWQ" secondAttribute="top" id="Hsb-7A-ejo"/>
+                                        <constraint firstItem="gQj-Zw-N3Z" firstAttribute="centerY" secondItem="AOS-iB-gWQ" secondAttribute="centerY" id="IgR-8c-Dms"/>
+                                        <constraint firstAttribute="trailing" secondItem="gQj-Zw-N3Z" secondAttribute="trailing" constant="20" id="JY7-k2-cc7"/>
+                                        <constraint firstAttribute="trailing" secondItem="RN2-p3-k3D" secondAttribute="trailing" id="V0n-Nb-rRJ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="downBtn" destination="gQj-Zw-N3Z" id="eXU-r2-vK1"/>
+                                    <outlet property="progressView" destination="RN2-p3-k3D" id="tkc-gb-mNv"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kRR-Jx-9Xs" id="7ys-u3-Uyk"/>
+                            <outlet property="delegate" destination="kRR-Jx-9Xs" id="f1U-TF-Ee9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="0Se-Y8-Y3p">
+                        <barButtonItem key="leftBarButtonItem" title="resumeAll" id="cOe-Ct-crd">
+                            <connections>
+                                <action selector="resumeAll:" destination="kRR-Jx-9Xs" id="Wpj-7p-T7M"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="suspendAll" id="rq1-2M-Yf2">
+                            <connections>
+                                <action selector="suspendAll:" destination="kRR-Jx-9Xs" id="pKy-Jk-ZAY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0gB-UO-Jcj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-172" y="-161.46926536731635"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cVe-6F-q6u">
+            <objects>
+                <navigationController id="zbB-za-2s7" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HAY-lY-uXF">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="kRR-Jx-9Xs" kind="relationship" relationship="rootViewController" id="BgB-Ms-fI6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="541-gI-7OF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1124" y="-161"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="download" width="512" height="512"/>
+    </resources>
+</document>
